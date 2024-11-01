@@ -1,5 +1,7 @@
 
 
+
+
 body.resume {
     background: lightgreen;
 	position:relative;
@@ -103,5 +105,77 @@ font-family: 	"Arial","Verdana", Sans-serif;
 body {
     font-size: 1rem;
     max-width: 1200px;
+}
+@media (max-width: 600px) {
+  resume.body {
+    font-size: 14px;
+  }
+}
+#map {
+  height: 100%;
+    margin: 0;
+  padding: 0;
+}
+/* Set the size of the map */
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+        .custom-control {
+            background-color: white;
+            border: 2px solid #000;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+@media (max-width: 768px) {
+  resume.h1 {
+    font-size: 1.5em;
+  }
+
+  resume.h3 {
+    font-size: 1.2em;
+  }
+
+  resume.nav ul li {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  resume.h2 {
+    font-size: 1em;
+    text-align: center;
+  }
+
+  resume.section p {
+    font-size: 0.9em;
+  }
+}
+
+/* Larger screens */
+@media (min-width: 769px) {
+  resume.h1 {
+    font-size: 2.5em;
+  }
+
+  resume.h3 {
+    font-size: 1.7em;
+  }
+
+  resume.nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+
+  resume.h2 {
+    font-size: 1.2em;
+    text-align: left;
+  }
+
+  resume.section p {
+    font-size: 1em;
+  }
 }
 
