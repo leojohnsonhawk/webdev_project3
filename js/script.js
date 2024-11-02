@@ -1,17 +1,20 @@
-document.getElementById('survey').addEventListener('submit', function(event) {
-  var inputs = document.querySelectorAll('#myForm input');
-  var valid = true;
-  inputs.forEach(function(input) {
-    if (input.value === '') {
-      valid = false;
+document.addEventListener('DOMContentLoaded', function() {
+  // Form Validation
+  document.getElementById('survey').addEventListener('submit', function(event) {
+    var inputs = document.querySelectorAll('#survey input');
+    var valid = true;
+    inputs.forEach(function(input) {
+      if (input.value === '') {
+        valid = false;
+      }
+    });
+    if (!valid) {
+      alert('Please fill out all fields.');
+      event.preventDefault();
     }
   });
-  if (!valid) {
-    alert('Please fill out all fields.');
-    event.preventDefault();
-  }
-});
-document.addEventListener('DOMContentLoaded', function() {
+
+  // To-Do List
   var addButton = document.getElementById('addTaskButton');
   var taskInput = document.getElementById('taskInput');
   var taskList = document.getElementById('taskList');
