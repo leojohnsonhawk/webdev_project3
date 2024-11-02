@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+  
   // Form Validation
   document.getElementById('survey').addEventListener('submit', function(event) {
     var inputs = document.querySelectorAll('#survey input');
