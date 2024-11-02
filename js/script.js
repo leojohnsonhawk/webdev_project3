@@ -1,10 +1,11 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
   
   // Form Validation
-  document.getElementById('survey').addEventListener('submit', function(event) {
-    var inputs = document.querySelectorAll('#survey input');
-    var valid = true;
-    inputs.forEach(function(input) {
+  const surveyForm = document.getElementById('survey');
+  surveyForm.addEventListener('submit', (event) => {
+    const inputs = document.querySelectorAll('#survey input');
+    let valid = true;
+    inputs.forEach((input) => {
       if (input.value === '') {
         valid = false;
       }
@@ -16,29 +17,33 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // To-Do List
-  var addButton = document.getElementById('addTaskButton');
-  var taskInput = document.getElementById('taskInput');
-  var taskList = document.getElementById('taskList');
+  const addButton = document.getElementById('addTaskButton');
+  const taskInput = document.getElementById('taskInput');
+  const taskList = document.getElementById('taskList');
 
-  addButton.addEventListener('click', function() {
-    var taskText = taskInput.value.trim();
+  const createTaskItem = (taskText) => {
+    const listItem = document.createElement('li');
+    listItem.textContent = taskText;
+    listItem.style.padding = '10px';
+    listItem.style.borderBottom = '1px solid #ddd';
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.style.marginLeft = '10px';
+    deleteButton.addEventListener('click', () => taskList.removeChild(listItem));
+
+    listItem.appendChild(deleteButton);
+    return listItem;
+  };
+
+  addButton.addEventListener('click', () => {
+    const taskText = taskInput.value.trim();
     if (taskText !== '') {
-      var listItem = document.createElement('li');
-      listItem.textContent = taskText;
-      listItem.style.padding = '10px';
-      listItem.style.borderBottom = '1px solid #ddd';
-
-      var deleteButton = document.createElement('button');
-      deleteButton.textContent = 'Delete';
-      deleteButton.style.marginLeft = '10px';
-      deleteButton.addEventListener('click', function() {
-        taskList.removeChild(listItem);
-      });
-
-      listItem.appendChild(deleteButton);
+      const listItem = createTaskItem(taskText);
       taskList.appendChild(listItem);
       taskInput.value = '';
     } else {
       alert('Please enter a task.');
     }
   });
+});
