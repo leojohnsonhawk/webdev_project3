@@ -1,20 +1,19 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() { 
   const surveyForm = document.getElementById("surveyForm");
 
   surveyForm.addEventListener("submit", function(event) {
-    event.preventDefault(); -
+    event.preventDefault(); // Removed the extra '-'
 
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const text = document.getElementById("text").value;
 
-
     alert(`Thank you for your feedback, ${name}!`);
-
 
     surveyForm.reset();
   });
 });
+
 document.addEventListener("DOMContentLoaded", function() {
   const taskInput = document.getElementById("taskInput");
   const taskList = document.getElementById("taskList");
