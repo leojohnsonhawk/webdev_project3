@@ -1,8 +1,9 @@
-document.addEventListener("DOMContentLoaded", function() { 
+document.addEventListener("DOMContentLoaded", () => {
+  // Survey form handling
   const surveyForm = document.getElementById("surveyForm");
 
-  surveyForm.addEventListener("submit", function(event) {
-    event.preventDefault(); // Removed the extra '-'
+  surveyForm.addEventListener("submit", (event) => {
+    event.preventDefault();
 
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
@@ -12,9 +13,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     surveyForm.reset();
   });
-});
 
-document.addEventListener("DOMContentLoaded", function() {
+  // Task management
   const taskInput = document.getElementById("taskInput");
   const taskList = document.getElementById("taskList");
   const addTaskButton = document.getElementById("addTaskButton");
@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     const li = document.createElement("li");
-
     li.innerHTML = `
       ${taskText}
       <button onclick="toggleTask(this)">Complete</button>
@@ -42,13 +41,13 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // Mark task as completed or not completed
-  window.toggleTask = function(button) {
+  window.toggleTask = (button) => {
     const taskItem = button.parentElement;
     taskItem.classList.toggle("completed");
   };
 
   // Remove task from the list
-  window.removeTask = function(button) {
+  window.removeTask = (button) => {
     const taskItem = button.parentElement;
     taskItem.remove();
   };
