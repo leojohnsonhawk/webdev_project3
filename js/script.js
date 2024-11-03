@@ -1,49 +1,56 @@
-document.addEventListener('DOMContentLoaded', () => {
-  
-  // Form Validation
-  const surveyForm = document.getElementById('survey');
-  surveyForm.addEventListener('submit', (event) => {
-    const inputs = document.querySelectorAll('#survey input');
-    let valid = true;
-    inputs.forEach((input) => {
-      if (input.value === '') {
-        valid = false;
-      }
-    });
-    if (!valid) {
-      alert('Please fill out all fields.');
-      event.preventDefault();
-    }
+document.addEventListener("DOMContentLoaded", function() {
+  const surveyForm = document.getElementById("surveyForm");
+
+  surveyForm.addEventListener("submit", function(event) {
+    event.preventDefault(); -
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const text = document.getElementById("text").value;
+
+
+    alert(`Thank you for your feedback, ${name}!`);
+
+
+    surveyForm.reset();
   });
+});
+document.addEventListener("DOMContentLoaded", function() {
+  const taskInput = document.getElementById("taskInput");
+  const taskList = document.getElementById("taskList");
+  const addTaskButton = document.getElementById("addTaskButton");
 
-  // To-Do List
-  const addButton = document.getElementById('addTaskButton');
-  const taskInput = document.getElementById('taskInput');
-  const taskList = document.getElementById('taskList');
+  addTaskButton.addEventListener("click", addTask);
 
-  const createTaskItem = (taskText) => {
-    const listItem = document.createElement('li');
-    listItem.textContent = taskText;
-    listItem.style.padding = '10px';
-    listItem.style.borderBottom = '1px solid #ddd';
+  function addTask() {
+    const taskText = taskInput.value.trim();
 
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
-    deleteButton.style.marginLeft = '10px';
-    deleteButton.addEventListener('click', () => taskList.removeChild(listItem));
+    if (taskText === "") {
+      alert("Please enter a game title.");
+      return;
+    }
 
-    listItem.appendChild(deleteButton);
-    return listItem;
+    const li = document.createElement("li");
+
+    li.innerHTML = `
+      ${taskText}
+      <button onclick="toggleTask(this)">Complete</button>
+      <button onclick="removeTask(this)">Remove</button>
+    `;
+
+    taskList.appendChild(li);
+    taskInput.value = "";
+  }
+
+  // Mark task as completed or not completed
+  window.toggleTask = function(button) {
+    const taskItem = button.parentElement;
+    taskItem.classList.toggle("completed");
   };
 
-  addButton.addEventListener('click', () => {
-    const taskText = taskInput.value.trim();
-    if (taskText !== '') {
-      const listItem = createTaskItem(taskText);
-      taskList.appendChild(listItem);
-      taskInput.value = '';
-    } else {
-      alert('Please enter a task.');
-    }
-  });
+  // Remove task from the list
+  window.removeTask = function(button) {
+    const taskItem = button.parentElement;
+    taskItem.remove();
+  };
 });
