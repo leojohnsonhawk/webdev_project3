@@ -51,4 +51,4 @@ document.addEventListener("DOMContentLoaded", () => {
     const taskItem = button.parentElement;
     taskItem.remove();
   }
-}
+
