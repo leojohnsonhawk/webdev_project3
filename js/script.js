@@ -44,11 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
   window.toggleTask = (button) => {
     const taskItem = button.parentElement;
     taskItem.classList.toggle("completed");
-  };
+  }
 
   // Remove task from the list
   window.removeTask = (button) => {
     const taskItem = button.parentElement;
     taskItem.remove();
-  };
-});
+  }
+}
