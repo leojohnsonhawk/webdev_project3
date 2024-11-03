@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     alert(`Thank you for your feedback, ${name}!`);
 
     surveyForm.reset();
-  });
+  }
 
   // Task management
   const taskInput = document.getElementById("taskInput");
