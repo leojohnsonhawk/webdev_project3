@@ -178,32 +178,97 @@ body {
     font-size: 1em;
   }
 }
+#survey {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+#survey label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#survey input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#survey button {
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#survey button:hover {
+  background-color: #4cae4c;
+}
+
+/* Task Management Styles */
 #taskInput {
-  width: 300px;
-  padding: 5px;
+  width: calc(100% - 150px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   margin-right: 10px;
 }
 
 #addTaskButton {
-  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#addTaskButton:hover {
+  background-color: #0056b3;
 }
 
 #taskList {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
-  max-width: 400px;
-  margin: 20px auto;
+  margin-top: 20px;
 }
 
-li {
-  padding: 5px;
-  margin-bottom: 5px;
-  background-color: #f3f3f3;
-  border: 1px solid #ddd;
+#taskList li {
+  background: #fff;
+  padding: 10px;
   border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-li.completed {
+#taskList li.completed {
   text-decoration: line-through;
   color: gray;
+}
+
+#taskList button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#taskList button:hover {
+  opacity: 0.8;
+}
+
+/* Message Styles */
+#taskMessage {
+  margin-top: 10px;
+  color: #007bff;
 }
