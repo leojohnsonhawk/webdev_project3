@@ -26,8 +26,10 @@
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script src="js/script.js"></script>
   <script>
+    // Initialize the map
     const map = L.map('map').setView([41.85003, -87.65005], 12);  // Chicago coordinates
 
+    // Add OpenStreetMap tiles
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '© OpenStreetMap contributors'
@@ -56,4 +58,4 @@
     L.control.centerButton({ position: 'topright' }).addTo(map);
   </script>
 </body>
-
+</html>
