@@ -1,21 +1,21 @@
 function handleSurveySubmission(event) {
-  event.preventDefault(); 
-
+  event.preventDefault(); // Prevent the default form submission
 
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const text = document.getElementById("text").value;
 
-
   alert(`Thank you for your feedback, ${name}!`);
 
-  document.getElementById("survey").reset();
+  document.getElementById("survey").reset(); // Reset the form
 }
 
-
-document.addEventListener("DOMContentLoaded", () => {
+// Initialize the application when the document is ready
+document.addEventListener("DOMContentLoaded", function() {
   const surveyForm = document.getElementById("survey");
   surveyForm.addEventListener("submit", handleSurveySubmission);
+
+  initializeTaskManagement(); // Initialize task management
 });
 
 function initializeTaskManagement() {
@@ -39,13 +39,13 @@ function initializeTaskManagement() {
 
     const completeButton = document.createElement("button");
     completeButton.textContent = "Complete";
-    completeButton.onclick = () => {
+    completeButton.onclick = function() {
       li.classList.toggle("completed");
     };
 
     const removeButton = document.createElement("button");
     removeButton.textContent = "Remove";
-    removeButton.onclick = () => {
+    removeButton.onclick = function() {
       taskList.removeChild(li);
       taskMessage.textContent = `"${gameTitle}" has been removed from your list.`;
     };
@@ -54,10 +54,7 @@ function initializeTaskManagement() {
     li.appendChild(removeButton);
     taskList.appendChild(li);
 
-    taskInput.value = ""; 
+    taskInput.value = ""; // Clear the input
     taskMessage.textContent = `"${gameTitle}" has been added to your list!`;
   }
 }
-
-
-document.addEventListener("DOMContentLoaded", initializeTaskManagement);
