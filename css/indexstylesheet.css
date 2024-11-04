@@ -272,7 +272,3 @@ body {
   margin-top: 10px;
   color: #007bff;
 }
-vml\\:* {
-  behavior: url(#default#VML);
-  display: inline-block;
-}
