@@ -6,7 +6,6 @@ function handleSurveySubmission(event) {
   const text = document.getElementById("text").value;
 
   alert(`Thank you for your feedback, ${name}!`);
-
   document.getElementById("survey").reset(); // Reset the form
 }
 
