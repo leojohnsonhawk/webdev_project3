@@ -288,6 +288,9 @@ body {
     position: relative;
 	break-inside: avoid;
 }
+.leaflet-container .leaflet-tile {
+    behavior: url(#default#VML);
+}
 #map {
   height: 500px;
   width: 100%;
