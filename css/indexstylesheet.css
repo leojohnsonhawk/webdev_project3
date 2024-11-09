@@ -286,6 +286,7 @@ body {
 }
 .leaflet-container {
     position: relative;
+	break-inside: avoid;
 }
 #map {
   height: 500px;
