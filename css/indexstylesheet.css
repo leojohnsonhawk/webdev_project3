@@ -290,6 +290,7 @@ body {
     overflow: hidden;
     width: 100%;
     height: 100%;
+	break-inside: avoid;
 }
 #map {
   height: 500px;
