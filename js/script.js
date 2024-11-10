@@ -67,10 +67,3 @@ function init() {
 // Add event listener for window load to initialize everything
 window.addEventListener('load', init);
 
-if (typeof console !== "undefined" && console.warn) {
-  const originalWarn = console.warn;
-  console.warn = function(message) {
-    if (message && message.includes("url(#default#VML)")) return;  // Ignore this specific warning
-    originalWarn.apply(console, arguments);
-  };
-}
