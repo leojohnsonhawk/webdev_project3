@@ -305,9 +305,3 @@ body {
 .leaflet-oldie .leaflet-control-layers {
     filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);
 }
-@supports (background-image: url(#default#VML)) {
-  /* VML-specific styles for old IE browsers */
-  .leaflet-container {
-    behavior: url(#default#VML);
-  }
-}
