@@ -18,10 +18,11 @@
       z-index: 400;
     }
   </style>
-  <!-- For Internet Explorer only -->
-  <!--[if lt IE 9]>
-    <script src="path/to/your/local/svg.vml.js"></script>
-  <![endif]-->
+  <style>
+  .lvml {
+    behavior: url(#default#VML); /* Apply VML for IE 8 and below */
+  }
+</style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
   <script>
     if (!Modernizr.svg) {
