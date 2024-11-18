@@ -67,3 +67,6 @@ function init() {
 // Add event listener for window load to initialize everything
 window.addEventListener('load', init);
 
+if (!document.crif (!document.createElementNS) {
+	document.write('<script src="https://cdn.jsdelivr.net/npm/svg-vml-polyfill@1.2.0/svg.vml.js"><\/script>'); 
+	}

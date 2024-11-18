@@ -11,22 +11,14 @@
       border: none;
       box-shadow: none;
     }
-
-    /* Ensuring proper rendering of SVG in modern browsers */
-    .leaflet-svg {
-      position: absolute;
-      z-index: 400;
-    }
   </style>
   <script>
     if (!document.createElementNS) {
       document.write('<script src="https://cdn.jsdelivr.net/npm/svg-vml-polyfill@1.2.0/svg.vml.js"><\/script>');
     }
   </script>
-
 </head>
 <body class="map">
-
   <h1>Leo Johnson's Website</h1>
   <h3>Click links below to search the website</h3>
   <nav>
@@ -78,6 +70,5 @@
     };
     L.control.centerButton({ position: 'topright' }).addTo(map);
   </script>
-
 </body>
 </html>
