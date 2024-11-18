@@ -67,3 +67,12 @@ function init() {
 // Add event listener for window load to initialize everything
 window.addEventListener('load', init);
 
+    window.addEventListener('load', function() {
+        // Select all elements with the 'lvml' class
+        var lvmlElements = document.querySelectorAll('.lvml');
+        
+        // Iterate over each element and remove the 'behavior' property
+        lvmlElements.forEach(function(el) {
+            el.style.behavior = 'none';
+        });
+    });
