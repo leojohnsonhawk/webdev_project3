@@ -11,10 +11,21 @@
       border: none;
       box-shadow: none;
     }
+
+    /* Ensuring proper rendering of SVG in modern browsers */
+    .leaflet-svg {
+      position: absolute;
+      z-index: 400;
+    }
   </style>
+  <!-- For Internet Explorer only -->
+  <!--[if lt IE 9]>
+    <script src="path/to/your/local/svg.vml.js"></script>
+  <![endif]-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
   <script>
-    if (!document.createElementNS) {
-      document.write('<script src="https://cdn.jsdelivr.net/npm/svg-vml-polyfill@1.2.0/svg.vml.js"><\/script>');
+    if (!Modernizr.svg) {
+      document.write('<script src="path/to/your/local/svg.vml.js"><\/script>');
     }
   </script>
 </head>
@@ -70,5 +81,9 @@
     };
     L.control.centerButton({ position: 'topright' }).addTo(map);
   </script>
+
+  <noscript>
+    <p>Your browser does not support the required features to display this map. Please upgrade to a modern browser.</p>
+  </noscript>
 </body>
 </html>
