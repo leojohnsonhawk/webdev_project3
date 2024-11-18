@@ -307,11 +307,5 @@ body {
   height: 100px;
   background-color: lightblue;
   border-radius: 50%;
+  behavior: url(#default#VML);
 }
-
-/* Old IE-specific styles using VML */
-<!--[if lte IE 8]>
-.lvml {
-  behavior: url(#default#VML); /* VML for older Internet Explorer */
-}
-<![endif]-->
