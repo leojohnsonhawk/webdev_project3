@@ -7,12 +7,23 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/indexstylesheet.css">
   <style>
-    /* Remove styles for img elements on this page */
     img {
       border: none;
       box-shadow: none;
     }
+
+    /* Ensuring proper rendering of SVG in modern browsers */
+    .leaflet-svg {
+      position: absolute;
+      z-index: 400;
+    }
   </style>
+  <script>
+    if (!document.createElementNS) {
+      document.write('<script src="https://cdn.jsdelivr.net/npm/svg-vml-polyfill@1.2.0/svg.vml.js"><\/script>');
+    }
+  </script>
+
 </head>
 <body class="map">
 
@@ -32,8 +43,12 @@
   <!-- Leaflet JS library -->
   <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
   <script>
-    // Initialize the map
-    const map = L.map('map').setView([41.85003, -87.65005], 12);  // Chicago coordinates
+    // Force SVG rendering for modern browsers (override VML for IE 8/9)
+    const map = L.map('map', {
+      center: [41.85003, -87.65005], // Chicago coordinates
+      zoom: 12,
+      renderer: L.svg()  // Force SVG renderer
+    });
 
     // Add OpenStreetMap tiles
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -63,6 +78,6 @@
     };
     L.control.centerButton({ position: 'topright' }).addTo(map);
   </script>
-  
+
 </body>
 </html>
