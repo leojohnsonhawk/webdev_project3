@@ -111,16 +111,12 @@ body {
     font-size: 14px;
   }
 }
-#map {
-  height: 100%;
-    margin: 0;
-  padding: 0;
-}
-/* Set the size of the map */
-        #map {
-            height: 100vh;
-            width: 100%;
-        }
+    /* For the map to take full height and be visible */
+    #map {
+      height: 500px;
+      width: 100%;
+      margin-top: 20px;
+    }
 .custom-control { 
 	z-index: 1000; /* Ensure custom controls appear on top */ 
 	background-color: white; 
