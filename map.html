@@ -15,10 +15,7 @@
 
   
   </style>
-</head>
-<body class="map">
-
-  <h1>Leo Johnson's Website</h1>
+    <h1>Leo Johnson's Website</h1>
   <h3>Click links below to search the website</h3>
   <nav>
     <ul>
@@ -28,43 +25,37 @@
       <li><a href="map.html">Map</a></li>
     </ul>
   </nav>
-  <!-- Leaflet Map Container -->
+</head>
   <div id="map"></div>
-
-  <!-- Leaflet JS library -->
+  
+  <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
   <script>
     // Initialize the map
-    const map = L.map('map').setView([41.85003, -87.65005], 12);  // Chicago coordinates
-
-    // Add OpenStreetMap tiles
+    const map = L.map('map').setView([41.85003, -87.65005], 12); // Chicago coordinates
+    
+    // Add OpenStreetMap tile layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
-    // Feature 1: Add a marker
-    const marker = L.marker([41.85003, -87.65005]).addTo(map);
-
-    // Feature 2: Add a popup (info window)
-    marker.bindPopup("<h3>Chicago</h3><p>The Windy City!</p>").openPopup();
-
-    // Feature 3: Add a custom control button
-    L.Control.CenterButton = L.Control.extend({
-      onAdd: function() {
-        const btn = L.DomUtil.create('div', 'custom-control');
-        btn.innerHTML = 'Center Map on Marker';
-        btn.onclick = () => map.setView(marker.getLatLng(), 12);
-        return btn;
-      }
+    // Custom SVG Icon
+    const svgIcon = L.divIcon({
+      className: 'leaflet-div-icon',
+      html: `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="svg-icon">
+          <circle cx="50" cy="50" r="40" stroke="black" stroke-width="5" fill="red" />
+        </svg>
+      `
     });
 
-    // Add the custom control to the map
-    L.control.centerButton = function(opts) {
-      return new L.Control.CenterButton(opts);
-    };
-    L.control.centerButton({ position: 'topright' }).addTo(map);
+    // Adding custom SVG marker to the map
+    const marker = L.marker([41.85003, -87.65005], { icon: svgIcon }).addTo(map);
+
+    // Popup for the marker
+    marker.bindPopup("<h3>Chicago</h3><p>The Windy City!</p>").openPopup();
   </script>
-  
+
 </body>
 </html>
