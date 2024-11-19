@@ -57,7 +57,42 @@ function initializeTaskManagement() {
   const addTaskButton = document.getElementById("addTaskButton");
   addTaskButton.addEventListener("click", addGame);
 }
+let map;
 
+function initMap() {
+  // Create a map centered on Chicago
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: 41.85003, lng: -87.65005 },
+    zoom: 12,
+  });
+
+  // Add a marker at Chicago
+  const marker = new google.maps.Marker({
+    position: { lat: 41.85003, lng: -87.65005 },
+    map: map,
+    title: 'Chicago',
+  });
+
+  // Add a popup (InfoWindow) when clicking the marker
+  const infowindow = new google.maps.InfoWindow({
+    content: '<h3>Chicago</h3><p>The Windy City!</p>',
+  });
+
+  marker.addListener('click', () => {
+    infowindow.open(map, marker);
+  });
+
+  // Add a custom control to center the map on the marker
+  const centerButton = document.createElement('button');
+  centerButton.textContent = 'Center Map on Marker';
+  centerButton.classList.add('custom-control');
+  centerButton.addEventListener('click', () => {
+    map.setCenter(marker.getPosition());
+    map.setZoom(12);
+  });
+
+  map.controls[google.maps.ControlPosition.TOP_RIGHT].push(centerButton);
+}
 // Initialization function
 function init() {
   initSurveyForm();

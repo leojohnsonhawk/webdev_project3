@@ -267,37 +267,20 @@ body {
   margin-top: 10px;
   color: #007bff;
 }
-.custom-control {
-  background-color: white;
-  border: 2px solid #fff;
-  border-radius: 3px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  margin-bottom: 22px;
-  text-align: center;
-  padding: 6px;
-  font-size: 14px;
-  color: #333;
-}
-.leaflet-container {
-    display: inline-block;
-    position: absolute;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-	break-inside: avoid;
-	
-}
-#map {
+.map-container {
   height: 500px;
   width: 100%;
+}
+
+.custom-control {
+  background-color: #fff;
   border: 1px solid #ccc;
-  margin-top: 20px;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 10px;
 }
+
 .custom-control:hover {
-  background-color: #eee;
-}
-.leaflet-oldie .leaflet-control-zoom,
-.leaflet-oldie .leaflet-control-layers {
-    filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);
+  background-color: #f0f0f0;
 }

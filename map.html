@@ -3,17 +3,16 @@
 <head>
   <meta charset="utf-8">
   <title>Map</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/indexstylesheet.css">
-  <style>
+  <link rel="stylesheet" href="css/map.css">
+</head>
+<style>
     img {
       border: none;
       box-shadow: none;
     }
-  </style>
-
-</head>
+ </style>
 <body class="map">
   <h1>Leo Johnson's Website</h1>
   <h3>Click links below to search the website</h3>
@@ -26,49 +25,10 @@
     </ul>
   </nav>
 
-  <div id="map" style="height: 500px; width: 100%;"></div>
+  <div id="map" class="map-container"></div>
 
-  <!-- Leaflet JS library -->
-  <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
-  <script>
-    // Force SVG rendering for modern browsers (override VML for IE 8/9)
-    const map = L.map('map', {
-      center: [41.85003, -87.65005], // Chicago coordinates
-      zoom: 12,
-      renderer: L.svg()  // Force SVG renderer
-    });
-
-    // Add OpenStreetMap tiles
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
-
-    // Feature 1: Add a marker
-    const marker = L.marker([41.85003, -87.65005]).addTo(map);
-
-    // Feature 2: Add a popup (info window)
-    marker.bindPopup("<h3>Chicago</h3><p>The Windy City!</p>").openPopup();
-
-    // Feature 3: Add a custom control button
-    L.Control.CenterButton = L.Control.extend({
-      onAdd: function() {
-        const btn = L.DomUtil.create('div', 'custom-control');
-        btn.innerHTML = 'Center Map on Marker';
-        btn.onclick = () => map.setView(marker.getLatLng(), 12);
-        return btn;
-      }
-    });
-
-    // Add the custom control to the map
-    L.control.centerButton = function(opts) {
-      return new L.Control.CenterButton(opts);
-    };
-    L.control.centerButton({ position: 'topright' }).addTo(map);
-  </script>
-
-  <noscript>
-    <p>Your browser does not support the required features to display this map. Please upgrade to a modern browser.</p>
-  </noscript>
+  <!-- Google Maps JS API -->
+   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_p_mMLS07f8yOJr0NGcWLJdfdMwKwYiw&callback=initMap"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
